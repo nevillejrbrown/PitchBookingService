@@ -5,15 +5,25 @@ using FluentValidation;
 
 namespace CricketDataTypes
 {
-    public class PitchBookingRequest
+    public class PitchBooking
     {
         public string ContactEmail { get; set; }
 
         public DateTime BookingDate { get; set; }
 
+        public override bool Equals(object obj)
+        {
+            if (obj is PitchBooking)
+            {
+                return ((PitchBooking)obj).ContactEmail.Equals(this.ContactEmail)
+                    && ((PitchBooking)obj).BookingDate.Equals(this.BookingDate);
+            }
+            else return false;
+        }
+
     }
 
-    public class PitchBookingRequestValidator : AbstractValidator<PitchBookingRequest>
+    public class PitchBookingRequestValidator : AbstractValidator<PitchBooking>
     {
         public PitchBookingRequestValidator()
         {

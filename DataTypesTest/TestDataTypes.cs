@@ -4,8 +4,6 @@ using FluentValidation.Results;
 using CricketDataTypes;
 using FluentAssertions;
 
-#nullable disable
-
 namespace DataTypesTest
 {
     [TestClass]
@@ -15,7 +13,7 @@ namespace DataTypesTest
         [TestMethod]
         public void WhenRequestIsMissingEmail_thenValidationFails()
         {
-            PitchBookingRequest request = new PitchBookingRequest()
+            PitchBooking request = new PitchBooking()
             {
                 ContactEmail = "",
                 BookingDate = System.DateTime.Now.AddDays(1)
@@ -28,7 +26,7 @@ namespace DataTypesTest
         [TestMethod]
         public void WhenRequestHasDateInPast_thenValidationFails()
         {
-            PitchBookingRequest request = new PitchBookingRequest()
+            PitchBooking request = new PitchBooking()
             {
                 ContactEmail = "test@test.com",
                 BookingDate = System.DateTime.Now.AddDays(-1)
@@ -41,7 +39,7 @@ namespace DataTypesTest
         [TestMethod]
         public void WhenRequestHasInvalidEmailAndDateInPast_thenValidationFails()
         {
-            PitchBookingRequest request = new PitchBookingRequest()
+            PitchBooking request = new PitchBooking()
             {
                 ContactEmail = "testtest.com",
                 BookingDate = System.DateTime.Now.AddDays(-1)
