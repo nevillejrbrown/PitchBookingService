@@ -29,14 +29,14 @@ steps:
     configuration: '$(buildConfiguration)'
 
 
-- task: VSTest@2
-  inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: |
-      **\*Test*.dll
-      !**\*TestAdapter.dll
-      !**\obj\**
-    searchFolder: '$(System.DefaultWorkingDirectory)'
+#- task: VSTest@2
+#  inputs:
+#    testSelector: 'testAssemblies'
+#    testAssemblyVer2: |
+#      **\*Test*.dll
+#      !**\*TestAdapter.dll
+#      !**\obj\**
+#    searchFolder: '$(System.DefaultWorkingDirectory)'
 
 # - task: DotNetCoreCLI@2
 #  displayName: 'Run unit tests - $(buildConfiguration)'
@@ -45,3 +45,9 @@ steps:
 #    arguments: '--no-build --configuration $(buildConfiguration)'
 #    publishTestResults: true
 #    projects: '**/*Tests.csproj'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: test
+    projects: '**/*Test*.csproj'
+    arguments: '--configuration $(buildConfiguration)'
