@@ -21,6 +21,10 @@ namespace CricketDataTypes
             else return false;
         }
 
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 
     public class PitchBookingRequestValidator : AbstractValidator<PitchBooking>
