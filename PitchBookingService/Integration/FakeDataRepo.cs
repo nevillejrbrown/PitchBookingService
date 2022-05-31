@@ -14,7 +14,8 @@ namespace PitchBookingService.Integration
 
         public PitchBooking? GetBookingByDate(DateTime bookingDate)
         {
-            return bookings[bookingDate];
+            PitchBooking? bookingFound;
+            return bookings.TryGetValue(bookingDate, out bookingFound) ? bookingFound : null;
         }
 
         public IDictionary<DateTime, PitchBooking> QueryAllBookings()

@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PitchBookingService.Service;
+using PitchBookingService.Integration;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -26,6 +28,10 @@ namespace PitchBookingService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddScoped<IBookingService, BookingService>();
+            services.AddSingleton<IDataRepo, FakeDataRepo>();
+            services.AddSingleton<IEventEmitter, EventGridEmitter>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

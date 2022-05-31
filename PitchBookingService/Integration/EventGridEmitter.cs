@@ -6,7 +6,9 @@ namespace PitchBookingService.Integration
     {
         public void BookingRequestAccepted(PitchBooking booking)
         {
-            throw new System.NotImplementedException();
+            // throw new System.NotImplementedException();
+
+            // ignore
         }
     }
 }
