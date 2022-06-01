@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using PitchBookingService.Service;
 using CricketDataTypes;
+using System.Threading.Tasks;
 
 namespace PitchBookingService.Controllers
 {
@@ -29,9 +30,14 @@ namespace PitchBookingService.Controllers
         }
 
         [HttpPost]
-        public void Post(PitchBooking booking) 
+        public IActionResult Post(PitchBooking booking) 
         {
+            if (!new PitchBookingRequestValidator().Validate(booking).IsValid)
+            {
+                return BadRequest();
+            }
             _bookingService.AddBooking(booking);
+            return Ok();
         }
     }
 }

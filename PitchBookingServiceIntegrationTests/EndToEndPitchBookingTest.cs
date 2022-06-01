@@ -7,6 +7,7 @@ using PitchBookingService.Integration;
 using CricketDataTypes;
 using System.Collections;
 using FluentAssertions;
+using Microsoft.AspNetCore.Mvc;
 
 namespace PitchBookingServiceIntegrationTests
 {
@@ -35,18 +36,28 @@ namespace PitchBookingServiceIntegrationTests
 
 
         [TestMethod]
-        public void TestMethod1()
+        public void WhenIPostANewValidBookingRequest_ItShouldBeAddedToTheListOfRequests()
         {
-
             PitchBooking request = new PitchBooking()
             {
-                ContactEmail = "",
+                ContactEmail = "blah@blah.com",
                 BookingDate = System.DateTime.Now.AddDays(1)
             };
             _controller.Get().Should().HaveCount(0);
             _controller.Post(request);
             _controller.Get().Should().HaveCount(1);
-
         }
+
+        [TestMethod]
+        public void WhenIPostAnInvalidBookingRequest_IShouldReceive400()
+        {
+            PitchBooking request = new PitchBooking()
+            {
+                ContactEmail = "",
+                BookingDate = System.DateTime.Now.AddDays(1)
+            };
+            _controller.Post(request).Should().BeOfType<BadRequestResult>();
+        }
+
     }
 }
