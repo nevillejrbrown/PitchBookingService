@@ -39,12 +39,10 @@ steps:
   inputs:
     command: publish
     publishWebProjects: True
-    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-    zipAfterPublish: True
 
-
-
-- task: PublishPipelineArtifact@1
+- task: AzureWebApp@1
   inputs:
-    targetPath: '$(Build.ArtifactStagingDirectory)' 
-    artifactName: 'PitchBookingService'
+    azureSubscription: 'CricketServicesServiceConnection'
+    appType: 'webAppLinux'
+    appName: 'PitchbookingService'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
