@@ -29,25 +29,20 @@ steps:
     configuration: '$(buildConfiguration)'
 
 
-#- task: VSTest@2
-#  inputs:
-#    testSelector: 'testAssemblies'
-#    testAssemblyVer2: |
-#      **\*Test*.dll
-#      !**\*TestAdapter.dll
-#      !**\obj\**
-#    searchFolder: '$(System.DefaultWorkingDirectory)'
-
-# - task: DotNetCoreCLI@2
-#  displayName: 'Run unit tests - $(buildConfiguration)'
-#  inputs:
-#    command: 'test'
-#    arguments: '--no-build --configuration $(buildConfiguration)'
-#    publishTestResults: true
-#    projects: '**/*Tests.csproj'
-
 - task: DotNetCoreCLI@2
   inputs:
     command: test
     projects: '**/*Test*.csproj'
-    arguments: '--configuration $(buildConfiguration)'
+    arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: publish
+    publishWebProjects: True
+
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'CricketServicesServiceConnection'
+    appType: 'webAppLinux'
+    appName: 'PitchbookingService'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
