@@ -7,9 +7,21 @@ namespace CricketDataTypes
 {
     public class PitchBooking
     {
+        private DateTime _trimmedDate;
+
         public string ContactEmail { get; set; }
 
-        public DateTime BookingDate { get; set; }
+        public DateTime BookingDate { 
+            get {
+                return _trimmedDate;
+            }
+            set
+            {
+                this._trimmedDate = value.Date;
+            }
+}
+
+
 
         public override bool Equals(object obj)
         {
