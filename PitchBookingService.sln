@@ -5,16 +5,16 @@ VisualStudioVersion = 16.0.32126.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PitchBookingService", "PitchBookingService\PitchBookingService.csproj", "{1AAD2E48-A682-4C74-A178-947B9EE0F09E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PitchBookingServiceTest", "PitchBookingServiceTest\PitchBookingServiceTest.csproj", "{9718B31B-A87B-434D-9103-E2E731F3A35C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PitchBookingServiceUnitTest", "PitchBookingServiceUnitTest\PitchBookingServiceUnitTest.csproj", "{9718B31B-A87B-434D-9103-E2E731F3A35C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTypesTest", "DataTypesTest\DataTypesTest.csproj", "{4D62C6EE-5413-49A4-8648-0AB51E6A2FFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTypesUnitTest", "DataTypesUnitTest\DataTypesUnitTest.csproj", "{4D62C6EE-5413-49A4-8648-0AB51E6A2FFA}"
 	ProjectSection(ProjectDependencies) = postProject
 		{320A26AB-2246-43C1-B75B-C8059F4D6303} = {320A26AB-2246-43C1-B75B-C8059F4D6303}
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CricketDataTypes", "CricketDataTypes\CricketDataTypes.csproj", "{320A26AB-2246-43C1-B75B-C8059F4D6303}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PitchBookingServiceIntegrationTests", "PitchBookingServiceIntegrationTests\PitchBookingServiceIntegrationTests.csproj", "{903ABDFD-0143-4196-A667-49F4BF3A8EC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PitchBookingServiceIntegrationUnitTests", "PitchBookingServiceIntegrationUnitTests\PitchBookingServiceIntegrationUnitTests.csproj", "{903ABDFD-0143-4196-A667-49F4BF3A8EC5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APITests", "APITests\APITests.csproj", "{9515E9A6-0033-4BAB-B25E-C458970D3512}"
 EndProject
