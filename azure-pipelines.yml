@@ -52,4 +52,4 @@ steps:
   inputs:
     azureSubscription: 'CricketServicesServiceConnection'
     webAppName: 'PitchbookingService'
-    action: 'start'
+    action: 'Start all continuous webjobs'
