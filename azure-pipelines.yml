@@ -52,4 +52,10 @@ steps:
   inputs:
     azureSubscription: 'CricketServicesServiceConnection'
     webAppName: 'PitchbookingService'
-    action: 'Start all continuous webjobs'
+    action: 'Start Azure App Service'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: test
+    projects: '**/*SystemTest*.csproj'
+    arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
