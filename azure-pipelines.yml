@@ -46,3 +46,10 @@ steps:
     appType: 'webAppLinux'
     appName: 'PitchbookingService'
     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+
+
+- task: AzureAppServiceManage@0
+  inputs:
+    azureSubscription: 'CricketServicesServiceConnection'
+    webAppName: 'PitchbookingService'
+    action: 'start'
